@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+scikit-learn
+pandas
+numpy
+spacy
+sqlmodel
+streamlit
+python-dotenv
+loguru
+faker
