@@ -1,7 +1,7 @@
 import unittest
 from sqlmodel import create_engine, Session, SQLModel
-from ..app.db import crud
-from ..app import models
+from app.db import crud
+from app import models
 
 DATABASE_URL = "sqlite:///test.db"
 engine = create_engine(DATABASE_URL, echo=True)
