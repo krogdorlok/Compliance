@@ -11,3 +11,6 @@ __pycache__/
 # IDE files
 .idea/
 .vscode/
+
+# Documentation
+PROJECT_OVERVIEW.txt
