@@ -1,0 +1,32 @@
+{
+  "renewal": {
+    "template": "To renew your {policy_type} policy, please visit our renewal portal at example.com/renew or call us at 1-800-RENEWAL. Your current premium is {premium_amount}.",
+    "confidence_threshold": 0.7,
+    "fallback": "I can help with policy renewals. Which type of policy are you looking to renew (e.g., auto, home, life)?",
+    "examples": ["renew my policy", "how to renew", "policy extension"]
+  },
+  "claim": {
+    "template": "To file a claim for your {policy_type} policy, please go to example.com/claims or call our claims department at 1-800-CLAIMS. Please have your policy number ready.",
+    "confidence_threshold": 0.75,
+    "fallback": "I can assist with filing a claim. What type of policy is this claim for?",
+    "examples": ["file a claim", "report an incident", "make a claim"]
+  },
+  "payment": {
+    "template": "You can make a payment for your {policy_type} policy online at example.com/payments or by calling 1-800-PAYMENT. Your next payment of {premium_amount} is due soon.",
+    "confidence_threshold": 0.8,
+    "fallback": "I can help with payments. What type of policy is this for, or what is the amount you need to pay?",
+    "examples": ["make a payment", "pay my bill", "payment options"]
+  },
+  "quote": {
+    "template": "To get a quote for a new {policy_type} policy with {coverage} coverage, please visit example.com/quotes. We offer competitive rates!",
+    "confidence_threshold": 0.6,
+    "fallback": "I can provide a quote for various policy types. What kind of insurance are you interested in (e.g., auto, home, life)?",
+    "examples": ["get a quote", "insurance cost", "how much is a policy"]
+  },
+  "complaint": {
+    "template": "We are sorry to hear you have a complaint. Please describe your issue in more detail, or visit example.com/complaints to submit a formal complaint.",
+    "confidence_threshold": 0.9,
+    "fallback": "I understand you have a complaint. Could you please provide more details so I can direct you to the right resource?",
+    "examples": ["I have a complaint", "report an issue", "dissatisfied"]
+  }
+}

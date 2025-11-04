@@ -8,9 +8,11 @@ from . import models
 from .anonymizer import anonymize_text
 from .db import crud
 from .db.database import engine, get_db
+from .response_generator import ResponseGenerator # Import the new ResponseGenerator
 
 intent_model = None
 ner_model = None
+response_generator = None # Add a global variable for the response generator
 
 
 def create_db_and_tables():
@@ -33,10 +35,11 @@ def on_startup():
     """
     Event handler for application startup.
     """
-    global intent_model, ner_model
+    global intent_model, ner_model, response_generator
     create_db_and_tables()
     intent_model = joblib.load("compliance_chatbot/data/intent_model.pkl")
     ner_model = spacy.load("compliance_chatbot/data/ner_model")
+    response_generator = ResponseGenerator() # Initialize the response generator
 
 
 @app.get("/health")
@@ -84,10 +87,14 @@ def chat(request: ChatRequest, db: Session = Depends(get_db)):
     entities = {ent.label_: ent.text for ent in doc.ents}
 
     # Anonymize the query
-    anonymized_query = anonymize_text(request.query)
+    anonymized_query, audit_log = anonymize_text(request.query) # Anonymizer now returns audit log
 
-    # Generate a response (simple logic for now)
-    response = f"Intent: {intent}, Entities: {entities}"
+    # Generate a response using the ResponseGenerator
+    response, response_metadata = response_generator.generate_response(
+        intent=intent,
+        entities=entities,
+        confidence=1.0 # Placeholder, actual confidence would come from intent model
+    )
 
     # Create a chat log
     crud.create_chat_log(

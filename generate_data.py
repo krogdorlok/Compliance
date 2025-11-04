@@ -4,7 +4,7 @@ from faker import Faker
 
 fake = Faker()
 
-def generate_intents_data(filename="compliance_chatbot/data/intents.csv", num_rows=1000):
+def generate_intents_data(filename="compliance_chatbot/data/intents.csv", num_rows=5000): # Increased to 5000 rows
     """
     Generates sample data for intent classification.
     """
@@ -27,7 +27,7 @@ def generate_intents_data(filename="compliance_chatbot/data/intents.csv", num_ro
                 text = f"I have a complaint about my {fake.word()} policy."
             writer.writerow([text, intent])
 
-def generate_ner_data(filename="compliance_chatbot/data/ner_examples.csv", num_rows=500):
+def generate_ner_data(filename="compliance_chatbot/data/ner_examples.csv", num_rows=2000): # Increased to 2000 rows
     """
     Generates sample data for named entity recognition.
     """
