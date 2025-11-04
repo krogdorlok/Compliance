@@ -4,6 +4,7 @@ scikit-learn
 pandas
 numpy
 spacy
+spacy-lookups-data
 sqlmodel
 streamlit
 python-dotenv
